@@ -1,0 +1,28 @@
+
+%div.well
+  = link_to 'New Project', new_project_path, :class => 'btn primary'
+%table
+  %tr
+    %th Client
+    %th Name
+    %th Project type
+    %th City
+    %th Province
+    %th Completion date
+    %th Is renowned
+    %th
+    %th
+
+  - @projects.each do |project|
+    %tr
+      %td= project.client_name
+      %td= link_to project.name, project
+      %td= project.project_type 
+      %td= project.city
+      %td= project.province
+      %td= project.completion_date
+      %td= project.is_renowned 
+      %td= link_to 'Edit', edit_project_path(project) 
+      %td= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete 
+
+

@@ -1,0 +1,4 @@
+%h1= @news.title 
+%p=@news.published_date
+%div.news-body
+  = @news.body.html_safe

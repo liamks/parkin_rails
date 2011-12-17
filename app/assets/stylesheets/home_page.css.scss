@@ -1,0 +1,58 @@
+// Place all the styles related to the HomePage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+ul#sortable_images{
+  list-style-type: none;
+  margin: 0;
+  padding: 5px 5px 5px 0;
+  clear: both;
+  height: 150px;
+  border: 1px solid #ccc;
+}
+
+ul#sortable_images li{
+  margin: 0 0 0 10px;
+  padding: 2px;
+  float: left;
+  background: #fff;
+  text-align: center;
+  border: 1px solid #ccc;
+  line-height: 0;
+  position: relative;
+}
+
+ul#sortable_images li .handle{
+  background: #aaa;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  margin-bottom: 2px;
+  cursor: move;
+  border: 1px solid #444;
+}
+
+ul#sortable_images li.ui-selected{
+  background: #eee;
+  border: 1px solid blue;
+}
+
+div#new_image{
+  border: 1px solid #ccc;
+  padding: 4px;
+
+}
+
+.image_edit_actions{
+  margin-top: 10px;
+}
+
+
+.edit_image_wrapper{
+  display: none;
+}
+
+

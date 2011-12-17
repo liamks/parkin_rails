@@ -1,0 +1,9 @@
+%h1 Archives
+
+- @news_items.keys.each do |year|
+  %h2=year
+  %ul
+    -@news_items[year].each do |news_item|
+      %li= link_to news_item.title, news_path(news_item)
+      
+      

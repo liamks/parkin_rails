@@ -1,0 +1,17 @@
+%h1 Parkin
+
+
+%div#slide_show
+  %div#images
+    -@hp.file_uploads.each do |image|
+      =image_tag image.upload.url
+  %div#controls
+    %ul
+      %li
+        %a{:href=>'#'} &#x2190;
+      %li
+        %a{:href=>'#'} &#x25a0;
+      %li
+        %a{:href=>'#'} &#9654;
+      %li
+        %a{:href=>'#'} &#x2192;

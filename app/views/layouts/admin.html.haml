@@ -1,0 +1,20 @@
+!!! 5
+%html
+%head
+  %title Parkin - Website Administration
+  = stylesheet_link_tag    "application"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+%body
+
+  %div.topbar{:data => {:dropdown => 'dropdown'}}
+    %div.topbar-inner
+      %div.container
+        %h3 
+          %a{:href=> '/'} Parkin
+        %ul.nav
+          =setup_links.html_safe
+
+
+  %div#content.container
+    = yield

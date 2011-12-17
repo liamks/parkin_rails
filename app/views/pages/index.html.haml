@@ -1,0 +1,7 @@
+%div.well
+  = link_to 'New Page', '', :class => 'btn primary'
+
+%ul
+  -@pages.each do |page|
+    %li
+      =link_to page.name, "#{page.pageable.class.to_s.downcase}/edit"

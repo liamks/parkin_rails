@@ -1,0 +1,64 @@
+%input{:id=>'client-names', :value => @client_names.join(','), :type => 'hidden'}
+
+= form_for(@project) do |f|
+  -if @project.errors.any?
+    %div#error_explanation
+      %h2="#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
+
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li= msg
+
+  %div.clearfix
+    = f.label :client_name
+    %div.input
+      = f.text_field :client_name
+
+  %div.clearfix
+    = f.label :name, 'Project Name'
+    %div.input
+      = f.text_field :name
+
+  %div.clearfix
+    = f.label :description
+    %div.input
+      = f.text_area :description, :rows => 10
+
+  %div.clearfix
+    = f.label :project_type 
+    %div.input
+      = f.select(:project_type, f.object.project_types)
+
+  %div.clearfix
+    = f.label :area
+    %div.input
+      = f.text_field :area
+
+  %div.clearfix
+    = f.label :city
+    %div.input
+      = f.text_field :city
+
+  %div.clearfix
+    = f.label :province
+    %div.input
+      = f.text_field :province
+
+  %div.clearfix
+    = f.label :costs
+    %div.input
+      = f.text_field :costs
+
+  %div.clearfix
+    = f.label :completion_date
+    %div.input
+      = f.text_field :completion_date
+
+  %div.clearfix
+    = f.label :is_renowned, 'Highlight Project'
+    %div.input
+      = f.check_box :is_renowned
+
+  %div.actions
+    = f.submit :class => 'btn primary'
+

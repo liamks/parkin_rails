@@ -1,0 +1,7 @@
+%h1 All
+
+- @projects.each do |project|
+  %div.project
+    %h2=project.name
+    %p=link_to 'read more', project
+    %p=project.description

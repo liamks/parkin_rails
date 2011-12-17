@@ -1,0 +1,28 @@
+<div class="row">
+
+  <div class="well">
+    <%= link_to 'New News', new_news_path, :class => 'btn primary' %>
+  </div>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Published date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @news_items.each do |news_item| %>
+    <tr>
+      <td><%= news_item.title %></td>
+      <td><%= news_item.body %></td>
+      <td><%= news_item.published_date %></td>
+      <td><%= link_to 'Show', news_path(news_item) %></td>
+      <td><%= link_to 'Edit', edit_news_path(news_item) %></td>
+      <td><%= link_to 'Destroy', news_path(news_item), confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
