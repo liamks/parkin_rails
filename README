@@ -1,6 +1,9 @@
 
-Run rake db:migrate
-Run: rake db:seed
+Run:
+
+    rake db:migrate
+    rake db:seed
+
 This will populate the database with some seed data (found in db/seeds.rb) 
 
 front end layout: 'app/views/layouts/front.html.haml'
