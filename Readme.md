@@ -1,10 +1,14 @@
 
-Run:
+# Parkin Rails
+
+## Getting Started
 
     rake db:migrate
     rake db:seed
 
 This will populate the database with some seed data (found in db/seeds.rb) 
+
+## File Locations
 
 front end layout: 'app/views/layouts/front.html.haml'
 front end css: 'app/assets/stylesheets/front.css.scss'
