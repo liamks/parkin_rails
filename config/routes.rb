@@ -1,10 +1,15 @@
 ParkinRails::Application.routes.draw do
 
 
+  #services
+  get "service" => 'services#show'
+  get "service/edit" => 'services#edit'
+  post "service/update" => 'services#update'
+
   delete "file_uploads/destroy/:id" => "file_uploads#destroy", :as => 'remove_image'
 
+  #homepage
   get "homepage/show" => "home_page#show"
-
   get "homepage/edit" => "home_page#edit"
   post "homepage/update" => "home_page#update", :as => 'home_page_update'
 

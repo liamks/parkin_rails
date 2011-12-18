@@ -2,10 +2,10 @@ class HomePageController < ApplicationController
   before_filter :get_home_page
 
   layout 'admin', :except => ['show']
-  layout 'front', :only => ['show']
+  
 
   def show
-    
+    render :layout => 'front'
   end
 
   def edit
@@ -31,6 +31,6 @@ class HomePageController < ApplicationController
   protected
 
   def get_home_page
-    @hp= HomePage.first || HomePage.create
+    @hp= HomePage.first
   end
 end

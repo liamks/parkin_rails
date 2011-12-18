@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  layout 'admin', :only => ['index']
+  layout 'admin'
   before_filter :collect_client_names, :only => ['new','edit']
 
   def main
