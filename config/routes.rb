@@ -1,6 +1,10 @@
 ParkinRails::Application.routes.draw do
 
 
+
+  devise_for :users
+
+  get 'admin' => 'news_items#index', :as => 'admin'
   #services
   get "service" => 'services#show'
   get "service/edit" => 'services#edit'

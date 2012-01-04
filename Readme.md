@@ -4,6 +4,7 @@
 
 Run the following command within the parkin_rails folder
 
+    bundle install
     rake db:migrate
     rake db:seed
 
@@ -85,3 +86,6 @@ template: `app/views/news_items/all.html.haml`
 url: /news/archives
 
 template: `app/views/news_items/archives.html.haml`
+
+## Back End
+ url: `/admin`
