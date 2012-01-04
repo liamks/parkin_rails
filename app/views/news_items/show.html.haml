@@ -1,4 +1,6 @@
+= render :partial => "shared/secondarynav-news"
+
 %h1= @news.title 
-%p=@news.published_date
+%h2=@news.published_date
 %div.news-body
   = @news.body.html_safe

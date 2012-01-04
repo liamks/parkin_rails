@@ -1,17 +1,9 @@
-%h1 Parkin
-
-
 %div#slide_show
-  %div#images
-    -@hp.file_uploads.each do |image|
-      =image_tag image.upload.url
-  %div#controls
-    %ul
-      %li
-        %a{:href=>'#'} &#x2190;
-      %li
-        %a{:href=>'#'} &#x25a0;
-      %li
-        %a{:href=>'#'} &#9654;
-      %li
-        %a{:href=>'#'} &#x2192;
+	%div#controls
+		.next
+			%a{:href=>'#', :title => "Next Image"} Next &#x2192; 
+		.previous
+			%a{:href=>'#', :title => "Previous Image"} &#x2190; Previous
+	%div#images
+		-@hp.file_uploads.each do |image|
+			=image_tag image.upload.url
