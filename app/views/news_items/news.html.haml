@@ -3,6 +3,6 @@
 %h1 News
 
 - @news_items.each do |news_item|
-  %div.news-item  
-    %h2=news_item.title
+  %article.news-item  
+    %h2= link_to news_item.title, news_path(news_item)
     %div.news-body=news_item.body.html_safe
