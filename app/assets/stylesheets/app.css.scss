@@ -8,3 +8,31 @@ div.file_upload{
 	margin-bottom: 10px;
 	border-radius: 5px;
 }
+
+#login_box {
+	width:280px;
+	border-color:#eee;
+	position:absolute;
+	top:50%;
+	left:50%;
+	.modal-footer .btn {
+		float:left;
+		margin:0 5px 0 0;
+	}
+	label {
+		font-weight:normal;
+	}
+	input[type=checkbox] {
+		float:left;
+		margin-right: 10px;
+	}
+	input {
+		width:240px;
+		&[type=submit],&[type=checkbox] {
+			width:auto;
+		}
+	}
+	margin: -164px 0 0 -141px;
+	z-index: 1;
+}
+
