@@ -15,6 +15,11 @@
         %ul.nav
           =setup_links.html_safe
 
+        %p.pull-right
+          =link_to current_user.email, admin_url 
+          | 
+          =link_to 'Logout', destroy_user_session_url
+
 
   %div#content.container
     = yield

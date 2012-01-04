@@ -1,7 +1,7 @@
 class NewsItemsController < ApplicationController
 
   layout 'admin', :except => ['show', 'news', 'archives']
-
+  before_filter :authenticate_user!, :except => ['show', 'news', 'archives']
 
 
   def news

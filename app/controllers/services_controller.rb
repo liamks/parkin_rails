@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   layout 'admin', :except => ['show']
-
+  before_filter :authenticate_user!, :except => ['show']
   def show
     @service = Service.first
     render :layout => 'front'

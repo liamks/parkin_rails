@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   layout 'admin'
   before_filter :collect_client_names, :only => ['new','edit']
+  before_filter :authenticate_user!
 
   def main
     render :layout => 'front'

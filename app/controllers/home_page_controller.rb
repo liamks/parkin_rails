@@ -2,7 +2,7 @@ class HomePageController < ApplicationController
   before_filter :get_home_page
 
   layout 'admin', :except => ['show']
-  
+  before_filter :authenticate_user!, :except => ['show']
 
   def show
     render :layout => 'front'

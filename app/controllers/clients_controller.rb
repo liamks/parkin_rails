@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
 
   layout 'admin', :except => ['show']
+  before_filter :authenticate_user!, :except => ['show']
 
   # GET /clients
   # GET /clients.json

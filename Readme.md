@@ -89,3 +89,11 @@ template: `app/views/news_items/archives.html.haml`
 
 ## Back End
  url: `/admin`
+
+### Authentication
+
+### Login
+template: `app/views/devise/sessions/new.html.erb`
+
+### Create New Account
+template: `app/views/devise/registrations/edit.html.erb` AND `app/views/devise/registrations/new.html.erb`

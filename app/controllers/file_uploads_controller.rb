@@ -1,4 +1,5 @@
 class FileUploadsController < ApplicationController
+  before_filter :authenticate_user!
   def destroy
 
     file_upload = FileUpload.find(params[:id])
