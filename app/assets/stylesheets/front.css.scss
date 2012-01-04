@@ -2,7 +2,180 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "mixins/reset";
+@import "avenir_webfont/import";
+
+// Gobal Variables (TO DO)
+$parkin_red: #991D19;
+$parkin_purple: #46166B;
+$body_text: #2a2a2a;
+
+$line: 22;
+$font-size: 14;
+$em: $font-size * 1;
+
+// Gobal Declorations (TO DO)
 
 body {
-  font-family: 'verdana';
+	font-family:'Helvetic Nue', Helvetica, Verdana, sans-serif;
+	font-size: $font-size / 16 * 1em;
+	line-height: #{$line / $em}em;
+	color:$body_text;
+}
+
+a {
+	color:$parkin_red;
+	text-decoration:none;
+	&:hover {
+		color:$parkin_purple;
+	}
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family:'AvenirLTStd35Light', Helvetica, Verdana, sans-serif;
+	text-rendering: optimizeLegibility;
+}
+
+h1 {
+	font-size: #{26 / $em}em;
+	line-height: ($line*1.5) / 26 * 1em;
+	color:$parkin_red;
+}
+
+p+p {
+	margin-top:1em;
+}
+
+// Header
+
+#banner {
+	height:135px;
+	position:relative;
+  background-color: #ffffff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f9f9f9)); 
+	background-image: -webkit-linear-gradient(top, #ffffff, #f9f9f9); 
+	background-image:    -moz-linear-gradient(top, #ffffff, #f9f9f9); 
+	background-image:     -ms-linear-gradient(top, #ffffff, #f9f9f9); 
+	background-image:      -o-linear-gradient(top, #ffffff, #f9f9f9); 
+	background-image:         linear-gradient(top, #ffffff, #f9f9f9);
+
+	-webkit-box-shadow: 0px 2px 10px rgba(0,0,0,0.06); 
+	-moz-box-shadow: 0px 2px 10px rgba(0,0,0,0.06); 
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.06); 
+	
+	#logo {
+		display:block;
+		width:100px;
+		height:100px;
+		background:image-url("parkin_logo_h.png") no-repeat;
+		text-indent:-9999px;
+		float:left;
+		margin:15px 30px;
+	}
+	#access {
+		position:absolute;
+		bottom:0px;
+		left:160px;
+		font-family:'AvenirLTStd35Light', Helvetica, Verdana, sans-serif;
+		font-size:14px;
+		text-rendering: optimizeLegibility;
+		li {
+			display:inline-block;
+			margin-right:-0.35em;
+			a {
+				display:block;
+				padding:18px 22px;
+				border-right: 1px dotted #ddd;
+			}
+			&:last-child a {
+				border-right:none;
+			}
+			&.selected {
+				a {
+					color:$parkin_purple;
+					border-bottom:5px solid $parkin_purple;
+					padding-bottom:13px;
+				}
+			}
+		}
+	}
+	aside {
+		position:absolute;
+		right:10px;
+		top:10px;
+		text-align:right;
+		color:#dedede;
+		font-size:10px;
+		line-height:12px;
+		a {
+			color:#dedede;
+		}
+	}
+}
+
+// Homepage Slideshow
+
+#controls {
+	position:absolute;
+	top:50%;
+	width:100%;
+	div {
+		a {
+			display:block;
+			width:40px;
+			height:100px;
+			background:image-url("slide_controls.png") no-repeat rgba(0,0,0,0.2);
+			text-indent:-9999px;
+		  -webkit-transition: background-color 0.3s ease-in-out;  
+		     -moz-transition: background-color 0.3s ease-in-out;  
+		      -ms-transition: background-color 0.3s ease-in-out;  
+		       -o-transition: background-color 0.3s ease-in-out;  
+		          transition: background-color 0.3s ease-in-out;
+			&:hover {
+				background-color:rgba(0,0,0,0.8);
+			}
+		}
+		&.next {
+			float:right;
+			a {
+				background-position:right;
+			}
+		}
+	}
+}
+
+// Content
+
+#main {
+	margin-top:30px;
+	.subtitle {
+		font-size: #{18 / $em}em;
+		line-height: ($line*1.5) / 18 * 1em;
+		margin-bottom:1em;
+	}
+}
+
+// Secondary
+
+#secondary {
+	font-family:'AvenirLTStd35Light', Helvetica, Verdana, sans-serif;
+	font-size:16px;
+	margin-left:30px;
+	li {
+		a {
+			border-bottom:1px dotted #ddd;
+			display:block;
+			padding:15px 0;
+		}
+		&:last-child {
+			a {
+				border:none;
+			}
+		}
+		&.selected {
+			a {
+				color:$parkin_purple;
+			}
+		}
+	}
 }

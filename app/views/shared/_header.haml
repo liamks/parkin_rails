@@ -1,0 +1,28 @@
+%header#banner
+	%h1#site-title
+		%a#logo{:href => "/",:title => "Back to Homepage"}
+			Parkin Architects Limited
+
+	%nav#access
+		%ul#menu
+			%li
+				%a{:href => "#", :title => "Profile"}
+					Profile	
+			%li
+				%a{:href => "#", :title => "Services"}
+					Services
+			%li.selected
+				%a{:href => "#", :title => "Projects"}
+					Projects
+			%li
+				%a{:href => "#", :title => "News"}
+					News			
+			%li
+				%a{:href => "#", :title => "Contact"}
+					Contact
+	%aside
+		#copyright 
+			= Time.now.year 
+			&copy; Parkin Architects Limited
+		%a{:href => "#"}
+			Policies &amp; Accessibility

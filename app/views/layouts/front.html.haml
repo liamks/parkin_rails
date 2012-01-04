@@ -1,8 +1,11 @@
 !!! 5
 %html
   %head
-    %title
-  
+    %meta{:charset => "utf-8"}
+    %title Parkin Architects Limited
     = stylesheet_link_tag 'front'
+    
   %body
-    =yield
+    = render :partial => "shared/header"
+    #main
+      = yield
