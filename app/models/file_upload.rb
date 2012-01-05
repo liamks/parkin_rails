@@ -1,6 +1,6 @@
 class FileUpload < ActiveRecord::Base
 	belongs_to :uploadable, :polymorphic => true
-	has_attached_file :upload, :styles => {:thumb => '140x140>'}
+	has_attached_file :upload, :styles => {:thumb => '80x80>'}
 
   default_scope :order => 'order_num ASC'
 

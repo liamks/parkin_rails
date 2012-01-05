@@ -75,7 +75,14 @@ class NewsItemsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to news_url(@news), notice: 'News item was successfully created.' }
+        format.html { 
+          if params[:news_item][:redirect_url].empty?
+            redirect_to news_index_url, notice: 'News item was successfully created.' 
+          else
+            @news.file_uploads.build
+            render action: "new"
+          end
+        }
         format.json { render json: @news, status: :created, location: @news }
       else
 
@@ -92,7 +99,15 @@ class NewsItemsController < ApplicationController
 
     respond_to do |format|
       if @news.update_attributes(params[:news_item])
-        format.html { redirect_to news_url(@news), notice: 'News item was successfully updated.' }
+        format.html { 
+          if params[:news_item][:redirect_url].empty?
+            redirect_to news_index_url, notice: 'News item was successfully updated.' 
+          else
+            @news.file_uploads.build
+            render action: "edit"
+          end
+          }
+
         format.json { head :ok }
       else
         

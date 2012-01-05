@@ -1,0 +1,130 @@
+= form_for(@news, :url => (@news.id.nil? ? news_index_path : news_path(@news)), :html => {:class=>'form-stacked', :multipart => true}) do |f|
+
+  %input#redirect_url{:type => 'hidden', :name=> 'news_item[redirect_url]'}
+  -if @news.errors.any?
+    %div#error_explanation
+      %h2="#{pluralize(@news.errors.count, "error")} prohibited this news from being saved:"
+
+      %ul
+        -@news.errors.full_messages.each do |msg|
+          %li= msg 
+
+  %div.row
+    %div.span8
+      %fieldset
+        %div.clearfix
+          =f.label :title
+          %div.input
+            = f.text_field :title, :class=>'span8'
+        
+        %div.clearfix
+          = f.label :body
+          %div.input
+            = f.text_area :body, :rows => 14, :class=>'span8'
+
+        %div.clearfix
+          = f.label :published_date
+          %div.input
+            = f.text_field :published_date
+
+        %div.clearfix
+          = f.label :news_type
+          %div.input
+            = f.select(:news_type, f.object.get_types)
+
+        %div.clearfix
+          = f.label :important, 'Mark as Important'
+          %div.input
+            = f.check_box :important
+
+      
+    %div.span7
+      %h2 Attach Files
+      %div
+        %a#new_upload.btn.success{:href=>'#'} New Upload
+      %ul#files
+        
+        =f.fields_for :file_uploads do |file_upload|
+          %li.file_upload
+            %div.row
+              %div.upload_header
+                %div.move
+                %a.delete{:href=>'#',:class => 'btn danger'} Delete
+                %a.edit{:href=>'#',:class => 'btn'} Edit
+
+
+              -if file_upload.object.new_record?
+                %div.span6.new_upload
+                  %div.clearfix
+                    = file_upload.file_field :upload
+                  %div.clearfix
+                    = file_upload.label :name, 'Name'
+                    %div.input
+                      = file_upload.text_field :name, :class => 'span6'
+      
+                  %div.clearfix
+                    = file_upload.label :caption
+                    %div.input
+                      = file_upload.text_field :caption, :class => 'span6'
+                  %div
+                    = f.submit 'Add Attachment', :class => 'btn primary', :id => 'add_attachment'
+              -else
+                %div.span1
+                  -if file_upload.object.is_image? 
+                    = image_tag file_upload.object.upload.url(:thumb)
+          
+                %div.span5.file_infos
+                  %p
+                    %strong File Name: 
+                    = file_upload.object.upload_file_name
+                  %p
+                    %strong Name: 
+                    = file_upload.object.name
+                  %p
+                    %strong Caption: 
+                    = file_upload.object.caption
+
+                %div.hidden_details
+                  %div.clearfix
+                    = file_upload.label :name, 'Name'
+                    %div.input
+                      = file_upload.text_field :name
+      
+                  %div.clearfix
+                    = file_upload.label :caption
+                    %div.input
+                      = file_upload.text_field :caption
+
+
+
+
+
+  %div.actions
+    = f.submit :class => 'btn primary'
+    = link_to 'Cancel'.html_safe, news_index_path, :class => 'btn'
+    -if @news.id
+      = link_to 'Preview', news_path(@news), :class=> 'btn' 
+
+
+:javascript
+  $(function() {
+    $('textarea').tinymce({
+        mode : "textareas",
+        theme : "advanced",
+        plugins : "preview", 
+                
+        // Theme options - button# indicated the row# only
+        theme_advanced_buttons1 : "bold,italic,underline,|,fontsizeselect,|,bullist,numlist,|,outdent,indent,|,link,unlink,|,code,preview,|,removeformat",
+        theme_advanced_buttons2 : "",  
+        theme_advanced_buttons3: ''  ,
+        theme_advanced_toolbar_location : "top",
+        theme_advanced_toolbar_align : "left",
+        theme_advanced_statusbar_location : "bottom"
+       
+    });
+
+    $("#news_item_published_date").datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
+  });
+

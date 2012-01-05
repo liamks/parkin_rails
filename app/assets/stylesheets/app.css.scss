@@ -2,12 +2,71 @@ div#content{
 	margin-top: 50px
 } 
 
-div.file_upload{
-	border: 1px solid #ccc;
-	padding: 4px;
-	margin-bottom: 10px;
-	border-radius: 5px;
+ul#files{
+	margin: 10px 0;
 }
+
+li.file_upload{
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	list-style:none;
+	padding: none;
+	margin-left: 0;
+
+
+	.new_upload{
+		padding-left: 4px;
+	}
+
+	.hidden_details{
+		display:none;
+	}
+
+	img{
+		padding-left: 4px;
+		padding-bottom: 4px;
+	}
+
+	.file_infos{
+		padding-left: 20px;
+	}
+
+	.upload_header{
+		height: 32px;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 4px;
+		margin-left: 20px;
+		background: #eee;
+
+		h2{
+			padding-left: 4px;	
+			display: inline-block;
+		}
+
+		#add_attachment{
+			float: right;
+			margin: 2px;
+		}
+
+		a{
+			margin: 2px;
+			float: right;
+		}
+
+		.move{
+			margin: 2px 0 0 2px;
+			border-radius: 4px;
+			float: left;
+			display: inline-block;
+			width: 25px;
+			height: 28px;
+			background: #444;
+			cursor: move;
+		}
+	}
+}
+
 
 #login_box {
 	width:280px;
