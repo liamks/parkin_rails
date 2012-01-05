@@ -100,8 +100,10 @@
 
   <div class="actions">
     <%= f.submit :class => 'btn primary' %>
-
-
+		<%= link_to 'Cancel'.html_safe, news_index_path, :class => 'btn' %>
+		<% if @news.id %>
+		<%= link_to 'Preview', news_path(@news), :class=> 'btn' %>
+		<% end %>
   </div>
 <% end %>
 

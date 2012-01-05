@@ -9,7 +9,7 @@
     %th City
     %th Province
     %th Completion date
-    %th Is renowned
+    %th Is Highlight
     %th
     %th
 
@@ -22,7 +22,7 @@
       %td= project.province
       %td= project.completion_date
       %td= project.is_renowned 
-      %td= link_to 'Edit', edit_project_path(project) 
-      %td= link_to 'Delete', project, confirm: 'Are you sure?', method: :delete 
+      %td= link_to 'Edit', edit_project_path(project), :class => "btn small"
+      %td= link_to 'Delete', project, :class => "btn small danger", confirm: 'Are you sure?', method: :delete 
 
 
