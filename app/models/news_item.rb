@@ -1,6 +1,6 @@
 class NewsItem < ActiveRecord::Base
 	has_many :file_uploads, :as => :uploadable
-	accepts_nested_attributes_for :file_uploads, :allow_destroy => true
+	accepts_nested_attributes_for :file_uploads, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
   default_scope :order => 'published_date ASC'
 
   validates :title, :published_date, :presence => true
@@ -18,4 +18,5 @@ class NewsItem < ActiveRecord::Base
   def get_types
     NewsItem::NEWS_TYPES
   end
+
 end

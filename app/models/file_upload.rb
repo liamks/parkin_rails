@@ -5,6 +5,7 @@ class FileUpload < ActiveRecord::Base
   default_scope :order => 'order_num ASC'
 
 	def is_image?
+    return false if self.upload_content_type.nil?
 		self.upload_content_type.include?('image')
 	end
 end

@@ -53,8 +53,6 @@ class NewsItemsController < ApplicationController
   # GET /news_items/new.json
   def new
     @news = NewsItem.new
-    @url = news_index_path
-    @method = 'POST'
     @news.file_uploads.build
 
     respond_to do |format|
@@ -66,8 +64,7 @@ class NewsItemsController < ApplicationController
   # GET /news_items/1/edit
   def edit
     @news = NewsItem.find(params[:id])
-    @url = news_path(@news)
-    @method = 'PUT'
+
     @news.file_uploads.build
   end
 
@@ -81,7 +78,7 @@ class NewsItemsController < ApplicationController
         format.html { redirect_to news_url(@news), notice: 'News item was successfully created.' }
         format.json { render json: @news, status: :created, location: @news }
       else
-        raise @news.errors.to_yaml
+
         format.html { render action: "new" }
         format.json { render json: @news.errors, status: :unprocessable_entity }
       end
@@ -98,7 +95,8 @@ class NewsItemsController < ApplicationController
         format.html { redirect_to news_url(@news), notice: 'News item was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        
+        format.html { render :action => "edit" }
         format.json { render json: @news.errors, status: :unprocessable_entity }
       end
     end
@@ -108,10 +106,11 @@ class NewsItemsController < ApplicationController
   # DELETE /news_items/1.json
   def destroy
     @news = NewsItem.find(params[:id])
+
     @news.destroy
 
     respond_to do |format|
-      format.html { redirect_to news_url }
+      format.html { redirect_to news_index_url }
       format.json { head :ok }
     end
   end
