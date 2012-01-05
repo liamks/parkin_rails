@@ -6,7 +6,7 @@ ParkinRails::Application.routes.draw do
   get 'admin' => 'news_items#index', :as => 'admin'
   #services
 
-
+  resources :page_items
 
   #profile
   actions = ['show','edit','update']

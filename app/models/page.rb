@@ -9,6 +9,8 @@ class Page < ActiveRecord::Base
       klass = "people"
     elsif klass == 'opportunity'
       klass = "opportunities"
+    elsif klass == 'pageitem'
+      klass = "page_items/#{self.pageable.id}"
     end
     
     "/#{klass}/#{action}"

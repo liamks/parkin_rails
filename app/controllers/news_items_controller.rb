@@ -53,7 +53,7 @@ class NewsItemsController < ApplicationController
   # GET /news_items/new.json
   def new
     @news = NewsItem.new
-    @url = {:controller => 'news_items', :action=>'create'}
+    @url = news_index_path
     @method = 'POST'
     @news.file_uploads.build
 
@@ -81,6 +81,7 @@ class NewsItemsController < ApplicationController
         format.html { redirect_to news_url(@news), notice: 'News item was successfully created.' }
         format.json { render json: @news, status: :created, location: @news }
       else
+        raise @news.errors.to_yaml
         format.html { render action: "new" }
         format.json { render json: @news.errors, status: :unprocessable_entity }
       end
