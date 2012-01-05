@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120104175352) do
+ActiveRecord::Schema.define(:version => 20120104231627) do
+
+  create_table "awards", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -35,6 +41,12 @@ ActiveRecord::Schema.define(:version => 20120104175352) do
     t.integer  "order_num"
   end
 
+  create_table "histories", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "home_pages", :force => true do |t|
     t.text     "content"
     t.datetime "created_at"
@@ -52,6 +64,12 @@ ActiveRecord::Schema.define(:version => 20120104175352) do
     t.boolean  "important"
   end
 
+  create_table "opportunities", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", :force => true do |t|
     t.string   "name"
     t.integer  "order"
@@ -60,6 +78,18 @@ ActiveRecord::Schema.define(:version => 20120104175352) do
     t.datetime "updated_at"
     t.integer  "pageable_id"
     t.string   "pageable_type"
+  end
+
+  create_table "people", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "projects", :force => true do |t|

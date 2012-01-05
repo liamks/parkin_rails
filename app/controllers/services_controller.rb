@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
     @service.update_attributes(params[:service])
 
     if @service.save
-      redirect_to :action => 'show'
+      redirect_to pages_url
     else
       render action: 'edit'
     end

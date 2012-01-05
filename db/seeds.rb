@@ -13,7 +13,8 @@ hp = HomePage.create()
 home_page = Page.create({
   'name' => 'Home Page',
   'pageable_type' => hp.class.to_s,
-  'pageable_id' => hp.id
+  'pageable_id' => hp.id,
+  'order' => 0
   })
 
 sv = Service.create({'content' => 'Parkin is a full-service architecture firm that customizes our solutions to the unique needs of each client.'})
@@ -25,6 +26,41 @@ Page.create({
   'pageable_id' => sv.id
 })
 
+
+pf = Profile.create({'content' => 'Profile page'})
+Page.create({
+  'name' => 'Profile',
+  'pageable_type' => pf.class.to_s,
+  'pageable_id' => pf.id
+})
+
+hs = History.create({'content' => 'History Page'})
+Page.create({
+  'name' => 'History',
+  'pageable_type' => hs.class.to_s,
+  'pageable_id' => hs.id 
+})
+
+op = Opportunity.create({'content' => 'Opportunities Page'})
+Page.create({
+  'name' => 'Opportunities',
+  'pageable_type' => op.class.to_s,
+  'pageable_id' => op.id  
+})
+
+pe = Person.create({'content' => 'People Page'})
+Page.create({
+  'name' => 'People',
+  'pageable_type' => pe.class.to_s,
+  'pageable_id' => pe.id  
+})
+
+aw = Awards.create({'content' => 'Awards Page'})
+Page.create({
+  'name' => 'Awards',
+  'pageable_type' => aw.class.to_s,
+  'pageable_id' => aw.id  
+})
 
 Project.create({
   'project_type' => 6,

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
              'pages' => {:link => '/pages', :text => 'Pages'}}
 
     controller = params[:controller]
-    controller = 'pages' if ['home_page', 'services'].include?(controller)
+    controller = 'pages' if ['home_page', 'services','opportunities','people','histories','profiles','awards'].include?(controller)
     links[controller][:css] = 'class="active"'
     output = []
     links.keys.each do |link|

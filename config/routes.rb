@@ -1,14 +1,38 @@
 ParkinRails::Application.routes.draw do
 
 
-
   devise_for :users
 
   get 'admin' => 'news_items#index', :as => 'admin'
   #services
-  get "service" => 'services#show'
-  get "service/edit" => 'services#edit'
-  post "service/update" => 'services#update'
+
+
+
+  #profile
+  actions = ['show','edit','update']
+  pages = [
+    {:url => 'profile',:controller => 'profiles'},
+    {:url => 'services',:controller => 'services'},
+    {:url => 'history',:controller => 'histories'},
+    {:url => 'opportunities',:controller => 'opportunities'},
+    {:url => 'people',:controller => 'people'},
+    {:url => 'service',:controller => 'services'},
+    {:url => 'awards',:controller => 'awards'},
+  ]
+ 
+  pages.each do |page|
+    actions.each do |action|
+      url = "#{page[:url]}/#{action}"
+      controller_action = "#{page[:controller]}##{action}"
+      if action == 'update'
+        post url => controller_action
+      else
+        url = page[:url] if action == 'show'
+        get url => controller_action
+      end
+    end
+  end
+
 
   delete "file_uploads/destroy/:id" => "file_uploads#destroy", :as => 'remove_image'
 

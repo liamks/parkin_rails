@@ -87,6 +87,31 @@ url: /news/archives
 
 template: `app/views/news_items/archives.html.haml`
 
+### Awards
+url: /awards
+
+template: `app/views/awards/show.html.haml`
+
+### History
+url: /history
+
+template: `app/views/histories/show.html.haml`
+
+### Opportunities
+url: /opportunities
+
+template: `app/views/opportunities/show.html.haml`
+
+### People
+url: /people
+
+template: `app/views/people/show.html.haml`
+
+### Profile
+url: /profile
+
+template: `app/views/profiles/show.html.haml`
+
 ## Back End
  url: `/admin`
 
