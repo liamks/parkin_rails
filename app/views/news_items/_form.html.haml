@@ -85,6 +85,7 @@
                     = file_upload.object.caption
 
                 %div.hidden_details
+
                   %div.clearfix
                     = file_upload.label :name, 'Name'
                     %div.input
@@ -94,6 +95,8 @@
                     = file_upload.label :caption
                     %div.input
                       = file_upload.text_field :caption
+
+                  =file_upload.hidden_field :order_num
 
 
 

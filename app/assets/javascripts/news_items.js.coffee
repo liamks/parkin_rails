@@ -8,7 +8,20 @@ class @FileUploads
 
     @add_handlers()
     @$currently_editing_li = null
+    @make_sortable()
 
+
+  handle_sort_finish: (event,ui) =>
+    for li, i in @$el.children()
+      $(li).find('[name$="order_num]"]').val(i)
+
+  make_sortable: () ->
+    options =
+      containment: 'parent'
+      handle: '.move'
+      stop: @handle_sort_finish
+
+    @$el.sortable(options)
 
   add_new_file: () ->
     $("#redirect_url").val location.href
