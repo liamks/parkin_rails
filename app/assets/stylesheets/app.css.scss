@@ -32,7 +32,23 @@ div.file_upload{
 			width:auto;
 		}
 	}
-	margin: -174px 0 0 -141px;
+	margin: -194px 0 0 -141px;
 	z-index: 1;
+	#error_explanation {
+		h2 {
+			font-size:20px;
+			line-height:1em;
+			margin-bottom:10px;
+		}
+	}
+	.field_with_errors {
+		&input {
+			border-color: #EE5F5B;
+			color: #B94A48;
+		}
+		label {
+			color: #B94A48;
+		}
+	}
 }
 
