@@ -53,8 +53,6 @@ class NewsItemsController < ApplicationController
   # GET /news_items/new.json
   def new
     @news = NewsItem.new
-    @url = {:controller => 'news_items', :action=>'create'}
-    @method = 'POST'
     @news.file_uploads.build
 
     respond_to do |format|
@@ -66,8 +64,7 @@ class NewsItemsController < ApplicationController
   # GET /news_items/1/edit
   def edit
     @news = NewsItem.find(params[:id])
-    @url = news_path(@news)
-    @method = 'PUT'
+
     @news.file_uploads.build
   end
 
@@ -78,9 +75,17 @@ class NewsItemsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to news_url(@news), notice: 'News item was successfully created.' }
+        format.html { 
+          if params[:news_item][:redirect_url].empty?
+            redirect_to news_index_url, notice: 'News item was successfully created.' 
+          else
+            @news.file_uploads.build
+            render action: "new"
+          end
+        }
         format.json { render json: @news, status: :created, location: @news }
       else
+
         format.html { render action: "new" }
         format.json { render json: @news.errors, status: :unprocessable_entity }
       end
@@ -91,13 +96,21 @@ class NewsItemsController < ApplicationController
   # PUT /news_items/1.json
   def update
     @news = NewsItem.find(params[:id])
-
     respond_to do |format|
       if @news.update_attributes(params[:news_item])
-        format.html { redirect_to news_url(@news), notice: 'News item was successfully updated.' }
+        format.html { 
+          if params[:news_item][:redirect_url].empty?
+            redirect_to news_index_url, notice: 'News item was successfully updated.' 
+          else
+            @news.file_uploads.build
+            render action: "edit"
+          end
+          }
+
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        
+        format.html { render :action => "edit" }
         format.json { render json: @news.errors, status: :unprocessable_entity }
       end
     end
@@ -107,10 +120,11 @@ class NewsItemsController < ApplicationController
   # DELETE /news_items/1.json
   def destroy
     @news = NewsItem.find(params[:id])
+
     @news.destroy
 
     respond_to do |format|
-      format.html { redirect_to news_url }
+      format.html { redirect_to news_index_url }
       format.json { head :ok }
     end
   end

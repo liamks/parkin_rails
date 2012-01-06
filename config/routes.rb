@@ -6,7 +6,7 @@ ParkinRails::Application.routes.draw do
   get 'admin' => 'news_items#index', :as => 'admin'
   #services
 
-
+  resources :page_items
 
   #profile
   actions = ['show','edit','update']
@@ -51,7 +51,7 @@ ParkinRails::Application.routes.draw do
   resources :pages
   resources :clients
 
-  resources :news, :controller => 'news_items' do
+  resources :news_items, :path => 'news', :as => 'news' do
    collection do
      get 'all' => 'news_items#news'
    end
