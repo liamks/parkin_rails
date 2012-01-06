@@ -77,10 +77,10 @@
                   %p
                     %strong File Name: 
                     = file_upload.object.upload_file_name
-                  %p
+                  %p.name
                     %strong Name: 
                     = file_upload.object.name
-                  %p
+                  %p.caption
                     %strong Caption: 
                     = file_upload.object.caption
 
@@ -102,8 +102,7 @@
   %div.actions
     = f.submit :class => 'btn primary'
     = link_to 'Cancel'.html_safe, news_index_path, :class => 'btn'
-    -if @news.id
-      = link_to 'Preview', news_path(@news), :class=> 'btn' 
+
 
 
 :javascript

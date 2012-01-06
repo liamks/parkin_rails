@@ -16,3 +16,5 @@
 
 # Ignore OS
 .DS_Store
+
+/public/system/uploads

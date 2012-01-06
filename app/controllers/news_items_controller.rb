@@ -96,7 +96,6 @@ class NewsItemsController < ApplicationController
   # PUT /news_items/1.json
   def update
     @news = NewsItem.find(params[:id])
-
     respond_to do |format|
       if @news.update_attributes(params[:news_item])
         format.html { 

@@ -1,6 +1,6 @@
 class NewsItem < ActiveRecord::Base
 	has_many :file_uploads, :as => :uploadable
-	accepts_nested_attributes_for :file_uploads, :reject_if => lambda { |a| !a.key?('upload') }, :allow_destroy => true
+	accepts_nested_attributes_for :file_uploads, :reject_if => lambda { |a| !a.key?('upload') and a[:name].blank? and a[:caption].blank?}, :allow_destroy => true
   default_scope :order => 'published_date ASC'
 
   validates :title, :published_date, :presence => true
