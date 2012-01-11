@@ -51,6 +51,7 @@
                 %div.move
                 %a.delete{:href=>'#',:class => 'btn danger'} Delete
                 %a.edit{:href=>'#',:class => 'btn'} Edit
+                %a.save{:href=>'#',:class => 'btn primary'} Save
 
 
               -if file_upload.object.new_record?
@@ -85,18 +86,18 @@
                     = file_upload.object.caption
 
                 %div.hidden_details
+                  %div.span4
+                    %div.clearfix
+                      = file_upload.label :name, 'Name'
+                      %div.input
+                        = file_upload.text_field :name
+        
+                    %div.clearfix
+                      = file_upload.label :caption
+                      %div.input
+                        = file_upload.text_field :caption
 
-                  %div.clearfix
-                    = file_upload.label :name, 'Name'
-                    %div.input
-                      = file_upload.text_field :name
-      
-                  %div.clearfix
-                    = file_upload.label :caption
-                    %div.input
-                      = file_upload.text_field :caption
-
-                  =file_upload.hidden_field :order_num
+                =file_upload.hidden_field :order_num
 
 
 

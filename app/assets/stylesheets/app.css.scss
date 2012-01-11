@@ -27,6 +27,8 @@ li.file_upload{
 
 	.hidden_details{
 		display:none;
+		margin-left: 20px;
+		padding-left: 2px;
 	}
 
 	img{
@@ -58,6 +60,10 @@ li.file_upload{
 		a{
 			margin: 2px;
 			float: right;
+		}
+
+		.save {
+			display:none;
 		}
 
 		.move{

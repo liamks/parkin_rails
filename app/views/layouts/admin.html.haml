@@ -1,25 +1,25 @@
 !!! 5
 %html
-%head
-  %title Parkin | Website Administration
-  = stylesheet_link_tag 'bootstrap', 'app', 'jquery-ui-1.8.16.custom'
-  = javascript_include_tag 'application'
-  = csrf_meta_tags
-%body
+  %head
+    %title Parkin | Website Administration
+    = stylesheet_link_tag 'bootstrap', 'app', 'jquery-ui-1.8.16.custom'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
 
-  %div.topbar{:data => {:dropdown => 'dropdown'}}
-    %div.topbar-inner
-      %div.container
-        %h3 
-          %a{:href=> '/'} Parkin
-        %ul.nav
-          =setup_links.html_safe
+    %div.topbar{:data => {:dropdown => 'dropdown'}}
+      %div.topbar-inner
+        %div.container
+          %h3 
+            %a{:href=> '/'} Parkin
+          %ul.nav
+            =setup_links.html_safe
 
-        %p.pull-right
-          =link_to current_user.email, admin_url 
-          | 
-          =link_to 'Logout', destroy_user_session_url
+          %p.pull-right
+            =link_to current_user.email, admin_url 
+            | 
+            =link_to 'Logout', destroy_user_session_url
 
 
-  %div#content.container
-    = yield
+    %div#content.container
+      = yield
