@@ -14,7 +14,7 @@ home_page = Page.create({
   'name' => 'Home Page',
   'pageable_type' => hp.class.to_s,
   'pageable_id' => hp.id,
-  'order' => 0
+  'order_num' => 0
   })
 
 sv = Service.create({'content' => 'Parkin is a full-service architecture firm that customizes our solutions to the unique needs of each client.'})

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105165104) do
+ActiveRecord::Schema.define(:version => 20120115205608) do
 
   create_table "awards", :force => true do |t|
     t.text     "content"
@@ -78,12 +78,12 @@ ActiveRecord::Schema.define(:version => 20120105165104) do
 
   create_table "pages", :force => true do |t|
     t.string   "name"
-    t.integer  "order"
     t.integer  "page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "pageable_id"
     t.string   "pageable_type"
+    t.integer  "order_num"
   end
 
   create_table "people", :force => true do |t|

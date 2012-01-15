@@ -123,3 +123,31 @@ li.file_upload{
 	}
 }
 
+
+ul#pages{
+	margin: 0;	
+}
+
+ul#pages li{
+	list-style:none;
+	border: 1px solid #ccc;
+	padding: 4px;
+	margin: 4px 0;
+	border-radius: 4px;
+	height: 28px;
+	background: #fff;
+	
+	.move{
+		border-radius: 4px;
+	
+		display: inline-block;
+		width: 25px;
+		height: 28px;
+		background: #444;
+		cursor: move;
+	}
+}
+
+
+
+

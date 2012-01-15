@@ -48,7 +48,12 @@ ParkinRails::Application.routes.draw do
       get 'highlights' => 'projects#highlights'
     end
   end
-  resources :pages
+
+
+    resources :pages, :path => '/admin/pages'
+    post "/admin/pages/update_order" => 'pages#update_order'
+
+  
   resources :clients
 
   resources :news_items, :path => 'news', :as => 'news' do

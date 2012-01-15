@@ -1,7 +1,8 @@
 %div.well
-  = link_to 'New Page', new_page_item_url, :class => 'btn primary'
+	= link_to 'New Page', new_page_item_url, :class => 'btn primary'
 
-%ul
-  -@pages.each do |page|
-    %li
-      =link_to page.name, page.route('edit')
+%ul#pages
+	-@pages.each do |page|
+		%li{:data => {:id => page.id}}
+			%div.move
+			=link_to page.name, page.route('edit')
