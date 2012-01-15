@@ -1,0 +1,53 @@
+%li.file_upload
+  %div.row
+    %div.upload_header
+      %div.move
+      %a.delete{:href=>'#',:class => 'btn danger'} Delete
+      %a.edit{:href=>'#',:class => 'btn'} Edit
+      %a.save{:href=>'#',:class => 'btn primary'} Save
+
+
+    -if file_upload.object.new_record?
+      %div.span6.new_upload
+        %div.clearfix
+          = file_upload.file_field :upload
+        %div.clearfix
+          = file_upload.label :name, 'Name'
+          %div.input
+            = file_upload.text_field :name, :class => 'span6'
+
+        %div.clearfix
+          = file_upload.label :caption
+          %div.input
+            = file_upload.text_field :caption, :class => 'span6'
+        %div
+          = f.submit 'Add Attachment', :class => 'btn primary', :id => 'add_attachment'
+    -else
+      %div.span1
+        -if file_upload.object.is_image? 
+          = image_tag file_upload.object.upload.url(:thumb)
+
+      %div.span5.file_infos
+        %p
+          %strong File Name: 
+          = file_upload.object.upload_file_name
+        %p.name
+          %strong Name: 
+          = file_upload.object.name
+        %p.caption
+          %strong Caption: 
+          = file_upload.object.caption
+
+      %div.hidden_details
+        %div.span4
+          %div.clearfix
+            = file_upload.label :name, 'Name'
+            %div.input
+              = file_upload.text_field :name
+
+          %div.clearfix
+            = file_upload.label :caption
+            %div.input
+              = file_upload.text_field :caption
+
+      =file_upload.hidden_field :order_num

@@ -13,16 +13,13 @@ class HomePageController < ApplicationController
   end
 
   def update
-    photos = params[:home_page][:file_uploads_attributes]
-    photos.delete_if {|k,v| (!v.has_key?('id') && !v.has_key?('upload')) || (v.has_key?('id') && ! v.has_key?('name'))}
-    params[:home_page][:file_uploads_attributes] = photos
-
-
-    @hp.update_attributes(params[:home_page])
-
-    
-    if @hp.save
-      redirect_to root_url
+    if @hp.update_attributes(params[:home_page])
+      if params[:home_page][:redirect_url].empty?
+        redirect_to pages_url
+      else
+        @hp.file_uploads.build
+        render action: 'edit'
+      end
     else
       render action: 'edit'
     end

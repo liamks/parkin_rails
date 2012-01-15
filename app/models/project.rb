@@ -6,4 +6,9 @@ class Project < ActiveRecord::Base
   def project_types
     Project::TYPES.map.with_index {|t,i| [t,i]}
   end
+
+  has_many :file_uploads, :as => :uploadable
+  accepts_nested_attributes_for :file_uploads, :allow_destroy => true
+
+  attr_accessor :redirect_url
 end

@@ -107,4 +107,7 @@ class @FileUploads
 
 
 $ ->
-  new FileUploads $("#files"), $("#new_upload"),'news_item'
+  $files = $("#files")
+  item = $("#obj").val()
+  if $files?
+    new FileUploads $("#files"), $("#new_upload"),item

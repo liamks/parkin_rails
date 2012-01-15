@@ -6,7 +6,6 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require tinymce-jquery
 //= require jquery-ui-1.8.16.custom.min
 //= require_tree .

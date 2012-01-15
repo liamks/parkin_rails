@@ -44,6 +44,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
+    @project.file_uploads.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -54,6 +55,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @project.file_uploads.build
   end
 
   # POST /projects
@@ -63,7 +65,16 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { 
+          if params[:project][:redirect_url].empty?
+            redirect_to @project, notice: 'Project was successfully created.' 
+          else
+            self.collect_client_names
+            @project.file_uploads.build
+            render action: "new"
+          end
+
+        }
         format.json { render json: @project, status: :created, location: @project }
       else
         format.html { render action: "new" }
@@ -79,7 +90,15 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { 
+          if params[:project][:redirect_url].empty?
+            redirect_to @project, notice: 'Project was successfully updated.' 
+          else
+            self.collect_client_names
+            @project.file_uploads.build
+            render action: "edit"
+          end
+          }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

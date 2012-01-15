@@ -1,53 +1,18 @@
+
+%input#obj{:type=>'hidden', :value => 'home_page'}
 = form_for(@hp, :url => home_page_update_url, :method => 'post', :html => {:class => 'form-stacked', :multipart => true}) do |f|
-  =f.hidden_field :image_order
   
-  %ul#sortable_images
-    =f.fields_for :file_uploads do |file_upload|
-      -if file_upload.object.new_record?
-        %li#new_image_remove
-          %div.clearfix
-            =file_upload.label :upload, 'Select Image'
-            %div.input
-              =file_upload.file_field :upload
-          %div.clearfix
-            =file_upload.label :name
-            %div.input
-              =file_upload.text_field :name
-          %div.clearfix
-            =file_upload.label :caption
-            %div.input
-              =file_upload.text_field :caption
-          =file_upload.hidden_field :order_num, :value => @hp.file_uploads.length - 1
-      -else
-        %li.thumb{:data => {:id => file_upload.object.id}}
-          %div.handle
-          =image_tag file_upload.object.upload.url(:thumb)
-          =file_upload.hidden_field :name
-          =file_upload.hidden_field :caption
-          =file_upload.hidden_field :order_num
+  %div.span8
+    %h2 Attach Files
+    %div
+      %input#redirect_url{:type => 'hidden', :name=> 'home_page[redirect_url]'}
+      %a#new_upload.btn.success{:href=>'#'} New Upload
+    %ul#files
+  
+      =f.fields_for :file_uploads do |file_upload|
+        = render :partial => 'shared/file_upload', :locals => {:file_upload => file_upload, :f => f}
     
-  
-  %div.row.image_edit_actions
-    %div#new_image.span6
-      
-
-    %div#edit_image.span9
-
-      %div.edit_image_wrapper
-        %div.row
-          %div.span6
-            %div.clearfix
-              %label{:for => 'name'} Name
-              %div.input
-                %input{:type => 'text', :name => 'name'}
-            %div.clearfix
-              %label{:for => 'caption'} Caption
-              %div.input
-                %input{:type => 'text', :name => 'caption'}
-            %div.clearfix
-              %a#img_update{:href=>"#", :class => 'btn primary'} Update Image
-          %div.span3
-            %a#remove_image{:href=>'#', :class=> 'btn danger'} Remove Image
+  %div.span8
       
 
 
