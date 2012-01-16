@@ -119,6 +119,7 @@ p+p {
 	position:absolute;
 	top:50%;
 	width:100%;
+	z-index:999;
 	div {
 		a {
 			display:block;
@@ -144,10 +145,54 @@ p+p {
 	}
 }
 
+#pager {
+	position:absolute;
+	bottom:0;
+	right:0;
+	z-index:999;
+	padding:10px;
+	line-height:0;
+	background:rgba(0,0,0,0.3);
+	a {
+		display:inline-block;
+		width:12px;
+		height:12px;
+		border:1px solid #fff;
+		text-indent:-9999px;
+		margin:0 2px  0;
+		opacity:.2;
+		&.activeSlide {
+			background:#fff;
+			opacity:1;
+		}
+		&:last-child {
+			margin:0;
+		}
+	}
+}
+
+#images {
+	img {
+		display:none;
+	}
+	.slide {
+		-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;	
+		.caption {
+			position:absolute;
+			bottom:0;
+			color:#fff;
+			padding:10px 10px 10px 30px;
+			background:rgba(0,0,0,0.3);
+		}
+	}
+}
+
 // Content
 
 #main {
-	margin-top:30px;
 	.subtitle {
 		font-size: #{18 / $em}em;
 		line-height: ($line*1.5) / 18 * 1em;

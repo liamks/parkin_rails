@@ -1,9 +1,15 @@
 %div#slide_show
-	%div#controls
-		.next
-			%a{:href=>'#', :title => "Next Image"} Next &#x2192; 
-		.previous
-			%a{:href=>'#', :title => "Previous Image"} &#x2190; Previous
-	%div#images
-		-@hp.file_uploads.each do |image|
-			=image_tag image.upload.url
+  %div#controls
+    .next
+      %a{:href=>'#', :title => "Next Image"} Next &#x2192; 
+    .previous
+      %a{:href=>'#', :title => "Previous Image"} &#x2190; Previous
+  %div#pager
+  %div#images
+    -@hp.file_uploads.each do |image|
+      %div.slide
+        =image_tag image.upload.url
+        .caption=image.caption
+    
+        
+        
