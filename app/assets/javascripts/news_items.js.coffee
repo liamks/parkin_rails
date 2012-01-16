@@ -54,7 +54,7 @@ class @FileUploads
     @$currently_editing_li.find('.hidden_details').toggle()
     @$currently_editing_li.find('.span1').toggle()
     @$currently_editing_li.find('.span5').toggle()
-    @$currently_editing_li.find('.save').toggle()
+    @$currently_editing_li.find('.save').toggleClass('show')
     @$currently_editing_li.find('.delete').toggle()
     @$currently_editing_li.find('.edit').toggle()
 

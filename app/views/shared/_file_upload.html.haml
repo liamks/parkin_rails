@@ -1,10 +1,12 @@
-%li.file_upload
+%li.file_upload.modal
   %div.row
     %div.upload_header
       %div.move
-      %a.delete{:href=>'#',:class => 'btn danger'} Delete
-      %a.edit{:href=>'#',:class => 'btn'} Edit
-      %a.save{:href=>'#',:class => 'btn primary'} Save
+        &#11021;
+      %div.buttons
+        %a.delete{:href=>'#',:class => 'btn danger'} Delete
+        %a.edit{:href=>'#',:class => 'btn'} Edit
+        %a.save{:href=>'#',:class => 'btn primary'} Save
 
 
     -if file_upload.object.new_record?
@@ -23,7 +25,7 @@
         %div
           = f.submit 'Add Attachment', :class => 'btn primary', :id => 'add_attachment'
     -else
-      %div.span1
+      %div.span2
         -if file_upload.object.is_image? 
           = image_tag file_upload.object.upload.url(:thumb)
 
@@ -38,8 +40,8 @@
           %strong Caption: 
           = file_upload.object.caption
 
-      %div.hidden_details
-        %div.span4
+      %div.span4
+        %div.hidden_details
           %div.clearfix
             = file_upload.label :name, 'Name'
             %div.input

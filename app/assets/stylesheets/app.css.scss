@@ -3,77 +3,83 @@ div#content{
 } 
 
 ul#files{
-	margin: 10px 0;
-	padding: 5px;
-	background: whiteSmoke;
 	height: 420px;
-	border: 1px solid #888;
-	border-radius: 4px;
 	overflow: auto;
+	margin:0;
+	position:relative;
 }
 
 li.file_upload{
-	border: 1px solid #aaa;
-	margin-bottom: 10px;
-	border-radius: 4px;
+	margin:0 0 10px 0;
 	list-style:none;
+	border-color:#ddd;
 	padding: none;
-	margin-left: 0;
-	background: #fff;
+	position: relative;
+	width:auto;
+	top:auto;
+	left:auto;
+	z-index:888;
 
-	.new_upload{
-		padding-left: 4px;
+	.new_upload {
+		padding-left: 10px;
 	}
 
 	.hidden_details{
 		display:none;
-		margin-left: 20px;
-		padding-left: 2px;
 	}
 
-	img{
-		padding-left: 4px;
+	img {
+		padding-left: 10px;
 		padding-bottom: 4px;
 	}
 
-	.file_infos{
-		padding-left: 20px;
-	}
-
 	.upload_header{
-		height: 32px;
-		border-bottom: 1px solid #ccc;
-		margin-bottom: 4px;
-		margin-left: 20px;
-		background: #eee;
+		border-bottom: 1px solid #EEE;
+		padding: 5px 10px;
+		margin-bottom:5px;
+		position:relative;
+		
+		.buttons {
+			text-align:right;
+			height:32px;
+		}
 
 		h2{
-			padding-left: 4px;	
+			font-size:18px;
+			line-height:26px;
+			margin: 2px 0 0 15px;
 			display: inline-block;
 		}
 
 		#add_attachment{
 			float: right;
-			margin: 2px;
 		}
 
 		a{
 			margin: 2px;
-			float: right;
 		}
 
 		.save {
 			display:none;
+			&.show {
+				display:inline-block;
+			}
 		}
 
 		.move{
-			margin: 2px 0 0 2px;
+			margin: 2px 0 0 15px;
 			border-radius: 4px;
-			float: left;
+			float:left;
+			color:#000;
+			text-align:center;
+			border:1px solid #ddd;
 			display: inline-block;
 			width: 25px;
+			font-size:24px;
 			height: 28px;
-			background: #444;
+			color:#888;
+			background:whitesmoke;
+			line-height:1.25em;
 			cursor: move;
 		}
 	}

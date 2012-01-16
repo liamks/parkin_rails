@@ -1096,6 +1096,9 @@ textarea[readonly] {
   margin-left: -20px;
   padding-left: 20px;
 }
+.form-stacked.no-padding {
+	padding-left:0;
+}
 /*
  * Tables.less
  * Tables for, you guessed it, tabular data
