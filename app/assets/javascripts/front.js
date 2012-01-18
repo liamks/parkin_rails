@@ -5,7 +5,7 @@ $(document).ready(function() {
 	$('#images').cycle({ 
 	    fx:     'fade', 
 	    speed:  1000, 
-	    timeout: 0, 
+	    timeout: 3000, 
 			slideResize:   1,
 			fit: 1,
 			width:   'auto',
