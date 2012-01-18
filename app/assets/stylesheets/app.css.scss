@@ -66,7 +66,7 @@ li.file_upload{
 			}
 		}
 
-		.move{
+		.move {
 			margin: 2px 0 0 15px;
 			border-radius: 4px;
 			float:left;
@@ -84,7 +84,6 @@ li.file_upload{
 		}
 	}
 }
-
 
 #login_box {
 	width:280px;
@@ -136,20 +135,29 @@ ul#pages{
 
 ul#pages li{
 	list-style:none;
-	border: 1px solid #ccc;
+	border: 1px solid #ddd;
 	padding: 4px;
-	margin: 4px 0;
+	margin: 0 0 5px 0;
 	border-radius: 4px;
-	height: 28px;
 	background: #fff;
-	
-	.move{
+	box-shadow: 1px 1px 3px #ddd;
+	a {
+		font-weight:bold;
+		vertical-align:super;
+	}
+	.move {
+		margin: 2px;
 		border-radius: 4px;
-	
+		color:#000;
+		text-align:center;
+		border:1px solid #ddd;
 		display: inline-block;
 		width: 25px;
+		font-size:24px;
 		height: 28px;
-		background: #444;
+		color:#888;
+		background:whitesmoke;
+		line-height:1.25em;
 		cursor: move;
 	}
 }
