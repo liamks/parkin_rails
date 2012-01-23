@@ -1,6 +1,6 @@
 %input{:id=>'client-names', :value => @client_names.join(','), :type => 'hidden'}
 %input#obj{:type=>'hidden', :value => 'project'}
-= form_for(@project,:html => {:class => 'form-stacked no-padding', :multipart => true}) do |f|
+= form_for(@project,:html => {:class => 'no-padding', :multipart => true}) do |f|
   -if @project.errors.any?
     %div#error_explanation
       %h2="#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
@@ -14,17 +14,17 @@
       %div.clearfix
         = f.label :client_name
         %div.input
-          = f.text_field :client_name
+          = f.text_field :client_name, :class => "xlarge" 
 
       %div.clearfix
         = f.label :name, 'Project Name'
         %div.input
-          = f.text_field :name
+          = f.text_field :name, :class => "xlarge" 
 
       %div.clearfix
         = f.label :description
         %div.input
-          = f.text_area :description, :rows => 10
+          = f.text_area :description, :rows => 10, :class => "xlarge" 
 
       %div.clearfix
         = f.label :project_type 
@@ -34,27 +34,27 @@
       %div.clearfix
         = f.label :area
         %div.input
-          = f.text_field :area
+          = f.text_field :area, :class => "xlarge" 
 
       %div.clearfix
         = f.label :city
         %div.input
-          = f.text_field :city
+          = f.text_field :city, :class => "xlarge" 
 
       %div.clearfix
         = f.label :province
         %div.input
-          = f.text_field :province
+          = f.text_field :province, :class => "xlarge" 
 
       %div.clearfix
         = f.label :costs
         %div.input
-          = f.text_field :costs
+          = f.text_field :costs, :class => "xlarge" 
 
       %div.clearfix
         = f.label :completion_date
         %div.input
-          = f.text_field :completion_date
+          = f.text_field :completion_date, :class => "xlarge" 
 
       %div.clearfix
         = f.label :is_renowned, 'Highlight Project'
@@ -64,11 +64,10 @@
               %label
                 = f.check_box :is_renowned
     %div.span8
-      %h2 Attach Files
-      %div
-        %input#redirect_url{:type => 'hidden', :name=> 'project[redirect_url]'}
-        %a#new_upload.btn.success{:href=>'#'} New Upload
-      %div.well  
+      %h3.inline Attach Files  
+      %input#redirect_url{:type => 'hidden', :name=> 'project[redirect_url]'}
+      %a#new_upload.btn.success{:href=>'#'} New Upload
+      %div.well.form-stacked
         %ul#files
     
           =f.fields_for :file_uploads do |file_upload|

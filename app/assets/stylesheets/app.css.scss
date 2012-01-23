@@ -2,11 +2,20 @@ div#content{
 	margin-top: 50px
 } 
 
-ul#files{
+.well.form-stacked {
+	overflow:auto;
 	height: 420px;
-	overflow: auto;
+}
+
+ul#files{
 	margin:0;
+	height:auto;
 	position:relative;
+}
+
+h3.inline {
+	display:inline-block;
+	margin:0 20px 10px 0;
 }
 
 li.file_upload{
@@ -20,8 +29,17 @@ li.file_upload{
 	left:auto;
 	z-index:888;
 
-	.new_upload {
-		padding-left: 10px;
+	.row {
+		margin-left:0;
+		.span2 {
+			margin-left:10px;
+		}
+		.span5, .span4 {
+			margin-left:0;
+		}
+		.new_upload {
+			margin-left:10px;
+		}
 	}
 
 	.hidden_details{
@@ -29,7 +47,6 @@ li.file_upload{
 	}
 
 	img {
-		padding-left: 10px;
 		padding-bottom: 4px;
 	}
 
@@ -44,10 +61,10 @@ li.file_upload{
 			height:32px;
 		}
 
-		h2{
+		h2 {
 			font-size:18px;
 			line-height:26px;
-			margin: 2px 0 0 15px;
+			margin: 2px 0 0 0;
 			display: inline-block;
 		}
 
@@ -67,7 +84,7 @@ li.file_upload{
 		}
 
 		.move {
-			margin: 2px 0 0 15px;
+			margin: 2px 0 0 0;
 			border-radius: 4px;
 			float:left;
 			color:#000;
@@ -160,6 +177,10 @@ ul#pages li{
 		line-height:1.25em;
 		cursor: move;
 	}
+}
+
+.form-stacked .input {
+	margin-left:0;
 }
 
 

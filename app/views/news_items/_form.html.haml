@@ -1,4 +1,4 @@
-= form_for(@news, :url => (@news.id.nil? ? news_index_path : news_path(@news)), :html => {:class=>'form-stacked no-padding', :multipart => true}) do |f|
+= form_for(@news, :url => (@news.id.nil? ? news_index_path : news_path(@news)), :html => {:class=>'no-padding', :multipart => true}) do |f|
 
   %input#redirect_url{:type => 'hidden', :name=> 'news_item[redirect_url]'}
   -if @news.errors.any?
@@ -12,16 +12,17 @@
   %div.row
     %div.span8
       %fieldset
-        %div.clearfix
-          =f.label :title
-          %div.input
-            = f.text_field :title, :class=>'span8'
-        
-        %div.clearfix
-          = f.label :body
-          %div.input
-            = f.text_area :body, :rows => 14, :class=>'span8'
+        %div.form-stacked
+          %div.clearfix
+            =f.label :title
+            %div.input
+              = f.text_field :title, :class=>'span7'
 
+          %div.clearfix
+            = f.label :body
+            %div.input
+              = f.text_area :body, :rows => 16, :class=>'span7'
+				
         %div.clearfix
           = f.label :published_date
           %div.input
@@ -35,13 +36,16 @@
         %div.clearfix
           = f.label :important, 'Mark as Important'
           %div.input
-            = f.check_box :important
+            %ul.inputs-list
+              %li
+                %label
+                  = f.check_box :important
 
       
     %div.span8
       %h3.inline Attach Files
       %a#new_upload.btn.success{:href=>'#'} New Upload
-      %div.well
+      %div.well.form-stacked
         %ul#files
     
           =f.fields_for :file_uploads do |file_upload|
