@@ -28,3 +28,8 @@
 %p
   = @project.is_renowned
 
+%div.images 
+  -@project.file_uploads.each do |image|
+    %div.image
+      =image_tag image.upload.url
+      .caption=image.caption
